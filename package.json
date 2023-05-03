@@ -10,7 +10,10 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@vuepic/vue-datepicker": "^5.0.1",
     "flowbite": "^1.6.5",
+    "swiper": "6.8.4",
+    "tw-elements": "^1.0.0-beta2",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },
