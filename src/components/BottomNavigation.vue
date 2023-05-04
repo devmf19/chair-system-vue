@@ -7,7 +7,7 @@ import UserIcon from './icons/bottom_navigation/UserIcon.vue'
 </script>
 
 <template>
-  <nav class="fixed bottom-0 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+  <nav class="pt-2 fixed bottom-0 w-full bg-darkblue border-b border-darkblue drop-shadow-bottombar">
     <div class="grid h-full max-w-lg grid-cols-5 mx-auto my-2">
         <button data-tooltip-target="tooltip-home" type="button" class="inline-flex flex-col items-center justify-center px-5 rounded-l-full hover:bg-gray-50 dark:hover:bg-gray-800 group">
             <HomeIcon />

@@ -1,30 +1,3 @@
-<template>
-    <div class="h-full">
-        <swiper :slides-per-view="1.5" :space-between="30" @swiper="onSwiper" class="h-full">
-            <swiper-slide>
-                <div class="w-full max-w-sm bg-gray-800 border rounded-2xl shadow">
-                    <h5 class="m-4 text-xl font-medium text-gray-500 dark:text-gray-400">700</h5>
-                    <span class="mx-4 text-xl font-bold text-gray-50">Sillas</span>
-                    <hr class="h-1 m-4 bg-gray-200 border-0 dark:bg-gray-700">
-                </div>
-            </swiper-slide>
-            <swiper-slide>
-                <div class="w-full max-w-sm bg-gray-800 border rounded-2xl shadow">
-                    <h5 class="m-4 text-xl font-medium text-gray-500 dark:text-gray-400">700</h5>
-                    <span class="mx-4 text-xl font-bold text-gray-50">Mesas de madera</span>
-                    <hr class="h-1 m-4 bg-gray-200 border-0 dark:bg-gray-700">
-                </div>
-            </swiper-slide>
-            <swiper-slide>
-                <div class="w-full max-w-sm bg-gray-800 border rounded-2xl shadow">
-                    <h5 class="m-4 text-xl font-medium text-gray-500 dark:text-gray-400">700</h5>
-                    <span class="mx-4 text-xl font-bold text-gray-50">Mesas plasticas</span>
-                    <hr class="h-1 m-4 bg-gray-200 border-0 dark:bg-gray-700">
-                </div>
-            </swiper-slide>
-        </swiper>
-    </div>
-</template>
 <script>
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -61,3 +34,31 @@ export default {
     },
 };
 </script>
+
+<template>
+    <div class="h-full">
+        <swiper :slides-per-view="1.5" :space-between="30" @swiper="onSwiper">
+            <swiper-slide>
+                <div class="max-w-sm bg-ultradarkblue border rounded-2xl">
+                    <h5 class="px-4 py-2 text-lg font-medium text-graytext">700</h5>
+                    <span class="mx-4 text-xl font-bold text-lightblue">Sillas</span>
+                    <hr class="h-1 m-4 bg-yellow-300 border-0 dark:bg-gray-700">
+                </div>
+            </swiper-slide>
+            <swiper-slide>
+                <div class="max-w-sm bg-ultradarkblue border rounded-2xl">
+                    <h5 class="px-4 py-2 text-lg font-medium text-graytext">700</h5>
+                    <span class="mx-4 text-xl font-bold text-lightblue">Mesas de madera</span>
+                    <hr class="h-1 m-4 bg-teal-400 border-0 dark:bg-gray-700">
+                </div>
+            </swiper-slide>
+            <swiper-slide>
+                <div class="max-w-sm bg-ultradarkblue border rounded-2xl">
+                    <h5 class="px-4 py-2 text-lg font-medium text-graytext">700</h5>
+                    <span class="mx-4 text-xl font-bold text-lightblue">Mesas plasticas</span>
+                    <hr class="h-1 m-4 bg-pink-500 border-0 dark:bg-gray-700">
+                </div>
+            </swiper-slide>
+        </swiper>
+    </div>
+</template>

@@ -4,6 +4,7 @@ import SideMenu from '../components/SideMenu.vue'
 import TopNavbar from '../components/TopNavbar.vue'
 import DatePicker from '../components/DatePicker.vue'
 import SwiperCard from '../components/SwiperCard.vue'
+import DetailsCard from '../components/DetailsCard.vue'
 
 import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
@@ -21,26 +22,36 @@ onMounted(() => {
   <SideMenu />
 
   <!--MAIN-->
-  <div class="mt-14 sm:ml-64 sm:mt-10">
-    <div class="p-2">
+  <div class="h-full mt-12 sm:ml-64 sm:mt-8 bg-darkblue">
+    <div class="py-2">
 
       <!--DATEPICKER SECTION-->
-      <div class="flex flex-col items-center justify-center h-48 mb-4  rounded bg-gray-400 dark:bg-gray-800">
-        <div class="w-full p-4">
-          <span>Hola, Francisco!</span>
+      <div class="flex flex-col justify-center h-36 mb-2  bg-darkblue border border-transparentborder">
+        <div class="px-4">
+          <span class="text-lg font-semibold text-lightblue">Hola, Francisco!</span>
         </div>
-        <div class="w-full p-4">
+        <div class="px-4 py-2">
           <DatePicker />
         </div>
       </div>
 
       <!--GENERAL DETAILS SECTION-->
-      <div class="flex flex-col h-56 mb-4 rounded bg-gray-400 dark:bg-gray-800">
-        <div class="w-full p-4">
+      <div class="flex flex-col justify-center h-40 mb-2  bg-darkblue border border-transparentborder">
+        <div class="px-4 pt-2 text-sm text-graytext font-semibold">
           <span>General</span>
         </div>
-        <div class="w-full p-4">
+        <div class="px-4 py-3">
           <SwiperCard />
+        </div>
+      </div>
+
+      <!--DETAILS SECTION-->
+      <div class="flex flex-col justify-center mb-2  bg-darkblue border border-transparentborder">
+        <div class="px-4 pt-2 text-sm text-graytext font-semibold">
+          <span>Detalles</span>
+        </div>
+        <div class=" p-4 pb-10">
+          <DetailsCard />
         </div>
       </div>
 
