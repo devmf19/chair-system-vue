@@ -5,11 +5,12 @@ import router from './router'
 // import './assets/main.css'
 import './assets/styles.css'
 import VueDatePicker from '@vuepic/vue-datepicker';
-import '@vuepic/vue-datepicker/dist/main.css'
+import '@vuepic/vue-datepicker/dist/main.css';
+
 
 const app = createApp(App)
 
 app.component('VueDatePicker', VueDatePicker);
-app.use(router)
+app.use(router);
 
-app.mount('#app')
+app.mount('#app');
