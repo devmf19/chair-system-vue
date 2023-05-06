@@ -9,7 +9,7 @@
     <div class="h-full px-3 pb-4 overflow-y-auto bg-ultradarkblue">
       <ul class="space-y-2 font-medium">
         <li>
-          <a href="#"
+          <RouterLink to="/products"
             class="flex items-center p-2 rounded-lg text-lightblue hover:text-ultradarkblue hover:bg-lightblue">
             <svg aria-hidden="true"
               class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -18,7 +18,7 @@
               <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
             </svg>
             <span class="ml-3">Productos</span>
-          </a>
+          </RouterLink>
         </li>
         <li>
           <a href="#"

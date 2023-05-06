@@ -22,7 +22,7 @@ onMounted(() => {
   <SideMenu />
 
   <!--MAIN-->
-  <div class="h-full mt-12 sm:ml-64 sm:mt-8 bg-darkblue">
+  <div class="h-screen pt-12 sm:ml-64 sm:pt-8 bg-darkblue">
     <div class="py-2">
 
       <!--DATEPICKER SECTION-->
