@@ -28,7 +28,7 @@ onMounted(() => {
       <!--DATEPICKER SECTION-->
       <div class="flex flex-col justify-center h-36 mb-2  bg-darkblue border border-transparentborder">
         <div class="px-4">
-          <span class="text-lg font-semibold text-lightblue">Hola, Francisco!</span>
+          <span class="text-lg font-semibold text-lightblue">Hola, !</span>
         </div>
         <div class="px-4 py-2">
           <DatePicker />

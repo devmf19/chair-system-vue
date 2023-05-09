@@ -24,34 +24,51 @@ const router = createRouter({
     {
       path: '/home',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: { requiresAuth: true }
     },
     {
       path: '/events',
       name: 'events',
-      component: EventsView
+      component: EventsView,
+      meta: { requiresAuth: true }
     },
     {
       path: '/statistics',
       name: 'statistics',
-      component: StatisticsView
+      component: StatisticsView,
+      meta: { requiresAuth: true }
     },
     {
       path: '/money',
       name: 'money',
-      component: MoneyView
+      component: MoneyView,
+      meta: { requiresAuth: true }
     },
     {
       path: '/profile',
       name: 'profile',
-      component: ProfileView
+      component: ProfileView,
+      meta: { requiresAuth: true }
     },
     {
       path: '/products',
       name: 'products',
-      component: ProductsView
+      component: ProductsView,
+      meta: { requiresAuth: true }
     }
   ]
-})
+});
+
+// Configurar un guardia de ruta en Vue Router que redirigirá al usuario a la página de inicio de sesión si no está autenticado
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const token = localStorage.getItem('token');
+  if (requiresAuth && !token) {
+    next('/');
+  } else {
+    next();
+  }
+});
 
 export default router

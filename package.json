@@ -11,22 +11,15 @@
   },
   "dependencies": {
     "@vuepic/vue-datepicker": "^5.0.1",
-    "datatables.net": "^1.13.4",
-    "datatables.net-bs5": "^1.13.4",
-    "datatables.net-buttons-bs5": "^2.3.6",
-    "datatables.net-responsive-bs5": "^2.4.1",
-    "datatables.net-vue3": "^2.1.0",
+    "axios": "^1.4.0",
     "flowbite": "^1.6.5",
     "install": "^0.13.0",
-    "jszip": "^3.10.1",
-    "pdfmake": "^0.2.7",
     "swiper": "6.8.4",
     "tw-elements": "^1.0.0-beta2",
+    "vee-validate": "^4.9.1",
     "vue": "^3.2.47",
-    "vue-datatables-net": "^2.0.1",
     "vue-router": "^4.1.6",
-    "vue-tailwind": "^2.5.1",
-    "vuetify": "^3.2.2"
+    "yup": "^1.1.1"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",

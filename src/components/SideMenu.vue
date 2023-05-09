@@ -1,5 +1,14 @@
-<script setup>
-    import { RouterLink } from 'vue-router';
+<script>
+import { RouterLink } from 'vue-router';
+import auth from '../logic/auth'
+
+export default {
+  methods: {
+    logout(){
+      auth.logout();
+    }
+  }
+}
 </script>
 
 <template>
@@ -21,8 +30,7 @@
           </RouterLink>
         </li>
         <li>
-          <a href="#"
-            class="flex items-center p-2 rounded-lg text-lightblue hover:text-ultradarkblue hover:bg-lightblue">
+          <a href="#" class="flex items-center p-2 rounded-lg text-lightblue hover:text-ultradarkblue hover:bg-lightblue">
             <svg aria-hidden="true"
               class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
               fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -34,8 +42,7 @@
           </a>
         </li>
         <li>
-          <a href="#"
-            class="flex items-center p-2 rounded-lg text-lightblue hover:text-ultradarkblue hover:bg-lightblue">
+          <a href="#" class="flex items-center p-2 rounded-lg text-lightblue hover:text-ultradarkblue hover:bg-lightblue">
             <svg aria-hidden="true"
               class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
               fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -50,8 +57,7 @@
           </a>
         </li>
         <li>
-          <a href="#"
-            class="flex items-center p-2 rounded-lg text-lightblue hover:text-ultradarkblue hover:bg-lightblue">
+          <a href="#" class="flex items-center p-2 rounded-lg text-lightblue hover:text-ultradarkblue hover:bg-lightblue">
             <svg aria-hidden="true"
               class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
               fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -63,6 +69,7 @@
         </li>
         <li>
           <RouterLink to="/"
+            v-on:click="logout"
             class="flex items-center p-2 rounded-lg text-lightblue hover:text-ultradarkblue hover:bg-lightblue">
             <svg aria-hidden="true"
               class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
