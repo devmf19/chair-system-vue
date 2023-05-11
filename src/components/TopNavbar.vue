@@ -1,6 +1,18 @@
-<script setup>
+<script>
 import MenuIcon from './icons/sidebar_menu/MenuIcon.vue';
 
+export default {
+  name: 'TopNavBar',
+  data() {
+    return {
+    }
+  },
+  components: {
+    MenuIcon
+  },
+  methods: {
+  }
+}
 </script>
 
 <template>

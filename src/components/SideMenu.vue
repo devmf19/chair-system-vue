@@ -3,6 +3,7 @@ import { RouterLink } from 'vue-router';
 import auth from '../logic/auth'
 
 export default {
+  name: 'SideMenu',
   methods: {
     logout(){
       auth.logout();

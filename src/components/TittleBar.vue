@@ -1,6 +1,25 @@
-<script setup>
+<script>
 import { RouterLink } from 'vue-router'
 import ArrowBack from './icons/ArrowBack.vue';
+
+export default {
+  name: 'TittleBar',
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  },
+  data() {
+    return {
+    }
+  },
+  components: {
+    ArrowBack
+  },
+  methods: {
+  }
+}
 
 </script>
 
@@ -13,7 +32,7 @@ import ArrowBack from './icons/ArrowBack.vue';
                         <span class="sr-only">Regresar</span>
                         <ArrowBack />
                     </RouterLink>
-                    <span class="w-full text-center">Titulo</span>
+                    <span class="w-full text-center">{{ name }}</span>
                 </div>
             </div>
         </div>

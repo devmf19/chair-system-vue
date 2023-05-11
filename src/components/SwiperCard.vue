@@ -1,16 +1,11 @@
 <script>
-// Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-// import Swiper core and required modules
 import SwiperCore, { Pagination, Navigation } from "swiper";
-// swiper bundle styles
 import "swiper/swiper-bundle.min.css";
 
-// swiper core styles
 import "swiper/swiper.min.css";
 
-// modules styles
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.min.css";
 SwiperCore.use([Pagination, Navigation]);
@@ -22,10 +17,10 @@ export default {
     },
     setup() {
         const onSwiper = (swiper) => {
-            console.log(swiper);
+            //console.log(swiper);
         };
         const onSlideChange = () => {
-            console.log("slide change");
+            //console.log("slide change");
         };
         return {
             onSwiper,

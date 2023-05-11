@@ -23,7 +23,10 @@ export default {
     logout() {
         localStorage.removeItem('token');
     },
-    getUsers() {
-        return axios.get("/api/users");
+    getProducts() {
+        return axios.get("/api/products/").then(res => res.data);
+    },
+    getAxios() {
+        return axios;
     }
 };

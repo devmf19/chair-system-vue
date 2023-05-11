@@ -1,28 +1,3 @@
-<script>
-import auth from '../logic/auth'
-
-export default {
-    data: () => ({
-        username: "",
-        password: "",
-        error: false,
-    }),
-    methods: {
-        async login() {
-            try {
-                const response = await auth.login(this.username, this.password);
-                console.log(response.data);
-                auth.setToken(response.data.token);
-                this.$router.push("/home");
-            } catch (error) {
-                this.error = true;
-                console.log(error);
-            }
-        },
-    },
-};
-</script>
-
 <template>
     <main class="bg-ultradarkblue">
         <div class="max-w-4xl mx-auto h-screen flex flex-col items-center justify-center px-6 py-8 lg:py-0 md:flex-row">
@@ -70,3 +45,28 @@ export default {
         </div>
     </main>
 </template>
+
+<script>
+import auth from '../logic/auth'
+
+export default {
+    data: () => ({
+        username: "",
+        password: "",
+        error: false,
+    }),
+    methods: {
+        async login() {
+            try {
+                const response = await auth.login(this.username, this.password);
+                console.log(response.data);
+                auth.setToken(response.data.token);
+                this.$router.push("/home");
+            } catch (error) {
+                this.error = true;
+                console.log(error);
+            }
+        },
+    },
+};
+</script>

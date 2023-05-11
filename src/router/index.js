@@ -7,6 +7,7 @@ import StatisticsView from '../views/StatisticsView.vue'
 import MoneyView from '../views/MoneyView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import ProductsView from '../views/ProductsView.vue'
+import EventCreateView from '../views/EventCreateView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -55,6 +56,12 @@ const router = createRouter({
       path: '/products',
       name: 'products',
       component: ProductsView,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/event-create',
+      name: 'event-create',
+      component: EventCreateView,
       meta: { requiresAuth: true }
     }
   ]

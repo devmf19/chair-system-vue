@@ -1,14 +1,22 @@
-<script setup>
+<script>
 import BottomNavigation from '../components/BottomNavigation.vue'
 import SideMenu from '../components/SideMenu.vue'
 import TopNavbar from '../components/TopNavbar.vue'
 
-import { onMounted } from 'vue'
-import { initFlowbite } from 'flowbite'
-
-onMounted(() => {
-  initFlowbite();
-})
+export default {
+  name: 'ProfileView',
+  data() {
+    return {
+    }
+  },
+  components: {
+    BottomNavigation,
+    SideMenu,
+    TopNavbar,
+  },
+  methods: {
+  }
+}
 </script>
 
 <template>
