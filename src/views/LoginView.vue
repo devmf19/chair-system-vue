@@ -7,7 +7,7 @@
                 <p class="pt-6 uppercase text-graytext font-mono font-bold">Sillas el puente</p>
             </div>
             <div
-                class="w-full bg-darkblue rounded-b-lg md:mt-0 md:max-w-md xl:p-0 md:rounded-b-none md:rounded-tr-lg md:rounded-br-lg md:w-3/5 md:h-2/3 border-2 border-lightblue">
+                class="w-full bg-darkblue rounded-b-lg md:mt-0 md:max-w-md xl:p-0 md:rounded-b-none md:rounded-tr-lg md:rounded-br-lg md:w-3/5 md:h-2/3 border-2 border-darkGreen border-t-transparentborder">
                 <div class="p-6 space-y-4 md:space-y-6 md:p-8">
                     <h1 class="text-lg font-bold leading-tight text-lightblue md:text-2xl">
                         Inicie sesion para acceder al sistema
@@ -27,7 +27,7 @@
                         </div>
                         <div class="flex items-end justify-between">
                             <input
-                                class="bg-lightblue hover:bg-teal-200 text-ultradarkblue font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                class="bg-darkGreen hover:bg-teal-200 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                                 type="submit" value="Iniciar sesion" />
                             <!--<RouterLink to="/home"
                                 class="bg-lightblue hover:bg-teal-200 text-ultradarkblue font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

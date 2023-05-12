@@ -1,6 +1,6 @@
 <template>
   <!--PAGE TITLE AND BUTTON MENU-->
-  <TopNavbar />
+  <TopNavbar name="Inicio"/>
 
   <!--SIDEMENU-->
   <SideMenu />
@@ -104,16 +104,12 @@ export default {
       this.eventCart.endDate = dateRange.endDate;
       this.eventCart.user = localStorage.getItem('userDui');
       localStorage.setItem('eventCart', JSON.stringify(this.eventCart));
-      console.log(response);
     },
     toEventCreate() {
       const products = JSON.parse(localStorage.getItem('eventCart')).products;
-      if (Object.keys(products).length === 0) {
-        this.$router.push("/event-create");
-      } else {
+      if (Object.keys(products).length > 0) {
         this.$router.push("/event-create");
       }
-
     },
     mounted() {
       initFlowbite();

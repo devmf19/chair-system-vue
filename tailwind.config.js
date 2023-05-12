@@ -18,7 +18,9 @@ module.exports = {
       'lightblue': '#E1FEFE',
       'ultradarkblue': '#1B2529',
       'transparentborder': '#0000001a',
-      'graytext': '#5B6C6C'
+      'graytext': '#5B6C6C',
+      'darkGreen': '#009789',
+      'lightGreen': '#1b3f43',
     },
   },
   plugins: [

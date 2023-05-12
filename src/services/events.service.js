@@ -14,7 +14,7 @@ export default {
                 dui: `${data.customer}`
             }
         }
-        
+
         const id = await auth.getAxios().post(
             `/api/events`,
             event,
@@ -24,14 +24,15 @@ export default {
                 }
             }
         ).then(res => res.data.message);
-        console.log(event)
-        console.log('ID EVENTO: ' + id);
         for (let productId in data.products) {
-             await eventDetailService.createEventDetail(id, data.products[productId], productId)
+            await eventDetailService.createEventDetail(id, data.products[productId], productId)
                 .then(res => console.log(res));;
             ;
         }
 
 
+    },
+    getEvents(){
+        return auth.getAxios().get(`/api/events`).then(res => res.data);
     },
 }

@@ -186,7 +186,6 @@ export default {
     async getProducts() {
       try {
         const responnse = await productsService.getProducts();
-        console.log(responnse);
         this.products = responnse;
       } catch (error) {
         console.error(error);
