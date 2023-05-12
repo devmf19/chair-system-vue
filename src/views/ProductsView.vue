@@ -4,12 +4,11 @@
 
     <div class="pt-11 h:screen flex flex-col mb-2 bg-darkblue">
 
-
       <div class="flex justify-center m-5">
-        <button id="newProductButton" data-modal-toggle="newProductModal"
-          class="block text-ultradarkblue bg-lightblue hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-md px-5 py-2.5 text-center"
-          type="button">
-          Nuevo Producto
+        <button type="button"
+          class="bg-darkGreen hover:bg-teal-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          data-te-toggle="modal" data-te-target="#productCreateModal" data-te-ripple-init data-te-ripple-color="dark">
+          Nuevo producto
         </button>
       </div>
 
@@ -18,7 +17,8 @@
           <div class="max-w-md mb-3 mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
             <Product :product="{ id: product.id, name: product.name, amount: product.amount }" />
             <div class="px-8 py-2 flex flex-row justify-around">
-              <button id="updateProductButton" data-modal-toggle="updateProductModal" type="button" v-on:click="setUpdateProduct(product.id, product.name, product.amount)">
+              <button type="button" data-te-toggle="modal" data-te-target="#productUpdateModal" data-te-ripple-init
+                data-te-ripple-color="dark" v-on:click="setUpdateProduct(product.id, product.name, product.amount)">
                 <Edit />
               </button>
             </div>
@@ -28,114 +28,125 @@
 
     </div>
 
-
-    <!-- CREATE MODAL-->
-    <div id="newProductModal" tabindex="-1" aria-hidden="true"
-      class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
-      <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
-        <!-- Modal content -->
-        <div class="relative p-4 bg-ultradarkblue rounded-lg shadow md:p-5 border-2 border-lightblue">
-          <!-- Modal header -->
-          <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b md:mb-5">
-            <h3 class="text-lg font-semibold text-lightblue">
+    <!-- CREATE PRODUCT MODAL -->
+    <div data-te-modal-init
+      class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+      id="productCreateModal" tabindex="-1" aria-labelledby="productCreateModalLabel" aria-hidden="true">
+      <div data-te-modal-dialog-ref
+        class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
+        <div
+          class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-lg bg-ultradarkblue bg-clip-padding text-current shadow-lg outline-none border-2 border-darkGreen">
+          <div class="flex flex-shrink-0 items-center justify-between rounded-t-md p-4">
+            <!--Modal title-->
+            <h5 class="text-xl font-medium leading-normal text-lightblue" id="productCreateModalLabel">
               Nuevo producto
-            </h3>
+            </h5>
+            <!--Close button-->
             <button type="button"
               class="text-red-500 bg-transparent hover:text-red-600 rounded-lg text-md p-1.5 ml-auto inline-flex items-center"
-              data-modal-toggle="newProductModal">
-              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"></path>
+              data-te-modal-dismiss aria-label="Close">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="h-6 w-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
-              <span class="sr-only">Cancelar</span>
             </button>
           </div>
-          <!-- Modal body -->
+
+          <!--Modal body-->
+
           <form action @submit.prevent="saveProduct">
-            <div class="grid gap-4 mb-4 md:grid-cols-2">
-              <div>
-                <label for="productName" class="block mb-2 text-md font-medium text-lightblue">Nombre del
-                  producto:</label>
-                <input type="text" name="productName" id="productName"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  placeholder="Nombre del producto" v-model="dataNewProduct.name" required>
-              </div>
-              <div>
-                <label for="productAmount" class="block mb-2 text-md font-medium text-lightblue">Cantidad</label>
-                <input type="number" name="productAmount" id="productAmount"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  placeholder="000" v-model="dataNewProduct.amount" required>
+            <div class="relative flex-auto p-4" data-te-modal-body-ref>
+              <div class="grid gap-4 mb-4 md:grid-cols-2">
+                <div>
+                  <label for="productName" class="block mb-2 text-md font-medium text-lightblue">Nombre del
+                    producto:</label>
+                  <input type="text" name="productName" id="productName"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    placeholder="Nombre del producto" v-model="dataNewProduct.name" required>
+                </div>
+                <div>
+                  <label for="productAmount" class="block mb-2 text-md font-medium text-lightblue">Cantidad</label>
+                  <input type="number" name="productAmount" id="productAmount"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    placeholder="000" v-model="dataNewProduct.amount" required>
+                </div>
               </div>
             </div>
-            <button type="submit"
-              class="text-darkblue inline-flex items-center bg-lightblue focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-md px-5 py-2.5 text-center"
-              dataNewProduct-modal-toggle="newProductModal">
-              Registrar producto
-            </button>
+
+            <!--Modal footer-->
+            <div class="mx-4 mb-4 flex flex-row items-center justify-between rounded-b-md">
+              <button type="button"
+                class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="dark">
+                Cancelar
+              </button>
+              <button type="submit"
+                class="bg-darkGreen hover:bg-teal-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="dark">
+                Registrar producto
+              </button>
+            </div>
           </form>
         </div>
       </div>
     </div>
 
-    <!-- Update modal -->
-    <div id="updateProductModal" tabindex="-1" aria-hidden="true"
-      class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
-      <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
-        <!-- Modal content -->
-        <div class="relative p-4 bg-ultradarkblue rounded-lg shadow md:p-5 border-2 border-lightblue">
-          <!-- Modal header -->
-          <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
-            <h3 class="text-lg font-semibold text-lightblue">
+    <!-- UPDATE PRODUCT MODAL -->
+    <div data-te-modal-init
+      class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+      id="productUpdateModal" tabindex="-1" aria-labelledby="productUpdateModalLabel" aria-hidden="true">
+      <div data-te-modal-dialog-ref
+        class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
+        <div
+          class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-lg bg-ultradarkblue bg-clip-padding text-current shadow-lg outline-none border-2 border-darkGreen">
+          <div class="flex flex-shrink-0 items-center justify-between rounded-t-md p-4">
+            <!--Modal title-->
+            <h5 class="text-xl font-medium leading-normal text-lightblue" id="productUpdateModalLabel">
               Actualizar producto
-            </h3>
+            </h5>
+            <!--Close button-->
             <button type="button"
               class="text-red-500 bg-transparent hover:text-red-600 rounded-lg text-md p-1.5 ml-auto inline-flex items-center"
-              data-modal-toggle="updateProductModal">
-              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"></path>
+              data-te-modal-dismiss aria-label="Close">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="h-6 w-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
-              <span class="sr-only">Cancelar</span>
             </button>
           </div>
-          <!-- Modal body -->
+
+          <!--Modal body-->
+
           <form action @submit.prevent="updateProduct">
-            <div class="grid gap-4 mb-4 md:grid-cols-2">
-              <div>
-                <label for="productNameUpdate" class="block mb-2 text-md font-medium text-lightblue">Nombre del
-                  producto:</label>
-                <input type="text" name="productNameUpdate" id="productNameUpdate"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  placeholder="Nombre del producto" v-model="dataUpdateProduct.name" required>
-              </div>
-              <div>
-                <label for="productAmountUpdate" class="block mb-2 text-md font-medium text-lightblue">Cantidad</label>
-                <input type="number" name="productAmountUpdate" id="productAmountUpdate"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  placeholder="000" v-model="dataUpdateProduct.amount" required>
+            <div class="relative flex-auto p-4" data-te-modal-body-ref>
+              <div class="grid gap-4 mb-4 md:grid-cols-2">
+                <div>
+                  <label for="productName" class="block mb-2 text-md font-medium text-lightblue">Nombre del
+                    producto:</label>
+                  <input type="text" name="productName" id="productName"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    placeholder="Nombre del producto" v-model="dataUpdateProduct.name" required>
+                </div>
+                <div>
+                  <label for="productAmount" class="block mb-2 text-md font-medium text-lightblue">Cantidad</label>
+                  <input type="number" name="productAmount" id="productAmount"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    placeholder="000" v-model="dataUpdateProduct.amount" required>
+                </div>
               </div>
             </div>
-            <div class="flex items-center space-x-4">
-              <button type="submit"
-                class="text-darkblue inline-flex items-center bg-lightblue focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-md px-5 py-2.5 text-center"
-                data-modal-toggle="updateProductModal">
-                Actualizar producto
+
+            <!--Modal footer-->
+            <div class="mx-4 mb-4 flex flex-row items-center justify-between rounded-b-md">
+              <button type="button" v-on:click="deleteProduct"
+                class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="dark">
+                Eliminar producto
               </button>
-              <button type="button"
-                class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
-                data-modal-toggle="updateProductModal"
-                v-on:click="deleteProduct">
-                <svg class="mr-1 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd"
-                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                    clip-rule="evenodd"></path>
-                </svg>
-                Eliminar
+              <button type="submit"
+                class="bg-darkGreen hover:bg-teal-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="dark">
+                Actualizar producto
               </button>
             </div>
           </form>
@@ -147,7 +158,11 @@
 </template>
 
 <script>
-import { initFlowbite } from 'flowbite';
+import {
+  Modal,
+  Ripple,
+  initTE,
+} from "tw-elements";
 import productsService from '../services/products.service'
 import Product from '../components/Product.vue';
 import TittleBar from '../components/TittleBar.vue';
@@ -177,7 +192,7 @@ export default {
     }
   },
   methods: {
-    setUpdateProduct(id, name, amount){
+    setUpdateProduct(id, name, amount) {
       this.dataUpdateProduct.id = id;
       this.dataUpdateProduct.name = name;
       this.dataUpdateProduct.amount = amount;
@@ -231,7 +246,7 @@ export default {
   },
   mounted() {
     this.getProducts();
-    initFlowbite();
+    initTE({ Modal, Ripple });
   }
 }
 </script>
