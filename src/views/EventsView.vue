@@ -6,7 +6,7 @@
   <SideMenu />
 
   <!--MAIN-->
-  <div class="h-screen pt-8 sm:ml-64">
+  <div class="h-screen pt-8 sm:ml-64 bg-darkblue">
     <div class="pb-8 bg-darkblue">
       <div class="px-4 py-6 space-y-4">
         <div v-for="event in events" :key="event.id">

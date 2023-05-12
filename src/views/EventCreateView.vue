@@ -1,51 +1,59 @@
 <template>
     <TittleBar name="Crear evento" />
     <main class="h-screen md:pt-14 bg-darkblue">
-        <div class="pt-11 h:screen flex flex-col mb-2 bg-darkblue md:pt-0">
+
+        <div class="pt-11 h:screen flex flex-col mb-2 bg-darkblue">
             <div>
-                <div class="flex flex-col justify-start m-5">
-                    <h2 class="text-lightblue text-lg font-bold">Fechas del evento:</h2>
-                    <h2 class="text-lightblue text-lg font-medium">Desde {{ initialDate }} Hasta {{ endDate }}</h2>
+                <div class="flex flex-row justify-between m-4">
+                    <h4 class="text-lightblue text-lg font-bold">Fechas del evento:</h4>
+                    <span class="text-lightblue text-lg font-medium">{{ formatDate(initialDate) }} - {{ formatDate(endDate)
+                    }}
+                    </span>
+                </div>
+                <div>
+                    <div class="flex flex-row justify-between m-4">
+                        <h4 class="text-lightblue text-lg font-bold">Cliente:</h4>
+                        <span class="text-lightblue text-lg font-medium">{{ customerName }}</span>
+                    </div>
+                    <div class="flex justify-between mx-4 mb-4">
+                        <button id="dropdownCustomers" data-dropdown-toggle="dpdwnCustomers"
+                            class="w-full bg-lightblue hover:bg-teal-200 text-ultradarkblue font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            type="button">
+                            Seleccionar cliente
+                        </button>
+                    </div>
                 </div>
 
-                <div class="flex justify-between mx-5 mb-3">
+                <div class="flex justify-between mx-4 mb-3">
                     <input type="text" v-model="eventName"
                         class="bg-gray-50 border border-gray-300 text-gray-900 md:text-md rounded-lg focus:ring-lightblue focus:border-lightblue block w-full p-2.5"
                         placeholder="Nombre para el evento">
-                </div>
-
-                <div class="flex justify-between mx-5">
-                    <button id="dropdownCustomers" data-dropdown-toggle="dpdwnCustomers"
-                        class="w-full bg-lightblue hover:bg-teal-200 text-ultradarkblue font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                        type="button">
-                        Seleccionar cliente
-                    </button>
-                </div>
-                <div class="flex justify-start m-5">
-                    <h2 class="text-lightblue text-lg font-bold">Cliente: {{ customerName }}</h2>
                 </div>
             </div>
 
 
 
-            <div class="px-4 py-6">
+            <div class="px-4 pt-6 pb-20">
                 <div v-for="(product, key) in products" :key="key">
-                    <div class="max-w-md mb-3 mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-
-                        <div class="px-8 py-4 flex items-center justify-between text-base font-bold bg-ultradarkblue">
-                            <span class="block mt-1 text-lg leading-tight font-medium text-lightblue">{{ product.name
-                            }}</span>
-                            <div class="w-1/3 space-y-1">
+                    <div
+                        class="max-w-md mb-3 mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl border-2 border-darkGreen">
+                        <div class="px-4 py-2 flex items-center justify-between text-base font-bold bg-ultradarkblue">
+                            <div class="w-3/4">
+                                <span class="block mt-1 text-lg leading-tight font-medium text-lightblue">{{ product.name
+                                }}</span>
+                                <span class="block mt-1 text-xs leading-tight font-bold text-graytext">Subtotal: $
+                                    {{ product.amount * product.price }}</span>
+                            </div>
+                            <div class="w-1/4 space-y-1">
                                 <p
-                                    class="text-right items-center justify-center px-2 py-0.5 ml-3 text-md font-bold text-ultradarkblue bg-lightblue rounded">
+                                    class="text-right items-center justify-center px-2 py-0.5 ml-3 text-sm font-bold text-ultradarkblue bg-lightblue rounded">
                                     {{ product.amount }}</p>
                                 <p
-                                    class="text-right items-center justify-center px-2 py-0.5 ml-3 text-md font-bold text-ultradarkblue bg-lightblue rounded">
+                                    class="text-right items-center justify-center px-2 py-0.5 ml-3 text-sm font-bold text-ultradarkblue bg-lightblue rounded">
                                     $
                                     {{ product.price }}</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -142,6 +150,12 @@ export default {
                 total += parseInt(product.amount) * parseInt(product.price);
             }
             return total;
+        },
+        formatDate(date) {
+            const format = date.substring(5, 10);
+            const month = format.substring(0, 2);
+            const day = format.substring(3, 5);
+            return `${day}/${month}`;
         },
         async productsList() {
             const eventCart = JSON.parse(localStorage.getItem('eventCart'));

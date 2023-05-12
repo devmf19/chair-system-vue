@@ -1,14 +1,14 @@
 <template>
   <div class="max-w-md  md:max-w-2xl mx-auto">
-    <span class="text-sm text-graytext font-medium">Seleccione el intervalo de fechas</span>
+    <span class="text-sm text-graytext font-semibold">Seleccione el intervalo de fechas</span>
     <div class="flex justify-between">
       <div class="pr-1">
-        <p class="py-1 text-sm text-graytext font-medium">Desde:</p>
+        <p class="py-1 text-sm text-graytext font-semibold">Desde:</p>
         <VueDatePicker v-model="initialDate" :enable-time-picker="false" :clearable="false"
           input-class-name="dp-custom-input" />
       </div>
       <div class="pl-1">
-        <p class="py-1 text-sm text-graytext font-medium">Hasta:</p>
+        <p class="py-1 text-sm text-graytext font-semibold">Hasta:</p>
         <VueDatePicker v-model="endDate" :enable-time-picker="false" :clearable="false"
           input-class-name="dp-custom-input" />
       </div>
@@ -51,8 +51,6 @@ export default {
         initialDate: this.format(this.initialDate),
         endDate: this.format(this.endDate),
       });
-      console.log(this.format(this.initialDate))
-      console.log( this.format(this.endDate))
      
     }
   },
