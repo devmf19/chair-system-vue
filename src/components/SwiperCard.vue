@@ -31,7 +31,7 @@ export default {
 </script>
 
 <template>
-    <div class="h-full">
+    <div class="h-full max-w-md md:max-w-2xl mx-auto">
         <swiper :slides-per-view="1.5" :space-between="30" @swiper="onSwiper">
             <swiper-slide>
                 <div class="max-w-sm bg-ultradarkblue border rounded-2xl">

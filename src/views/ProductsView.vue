@@ -147,6 +147,7 @@
 </template>
 
 <script>
+import { initFlowbite } from 'flowbite';
 import productsService from '../services/products.service'
 import Product from '../components/Product.vue';
 import TittleBar from '../components/TittleBar.vue';
@@ -231,6 +232,7 @@ export default {
   },
   mounted() {
     this.getProducts();
+    initFlowbite();
   }
 }
 </script>

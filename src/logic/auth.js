@@ -14,8 +14,11 @@ export default {
         const loginDto = { username, password };
         return axios.post("/auth/login", loginDto);
     },
-    setToken(token) {
-        localStorage.setItem("token", token);
+    setToken(data) {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("userDui", data.dui);
+        localStorage.setItem("user", `${data.name} ${data.lastname}`);
+        localStorage.setItem("username", data.username);
     },
     getToken() {
         return localStorage.getItem('token');

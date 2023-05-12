@@ -38,11 +38,13 @@
           <DetailsCard
             :product="{ productId: product.productId, productName: product.productName, available: product.available }" />
         </div>
-        <div class="px-5 pb-14">
-          <button v-on:click="toEventCreate"
-            class="bg-lightblue hover:bg-teal-200 text-ultradarkblue font-bold py-2 mt-2 w-full rounded focus:outline-none focus:shadow-outline">
-            Siguiente
-          </button>
+        <div class="pb-14 mx-4">
+          <div class="mx-auto max-w-md md:max-w-2xl ">
+            <button v-on:click="toEventCreate"
+              class="w-full bg-lightblue hover:bg-teal-200 text-ultradarkblue font-bold py-2 mt-2 rounded focus:outline-none focus:shadow-outline">
+              Siguiente
+            </button>
+          </div>
         </div>
 
       </div>
@@ -56,6 +58,7 @@
 </template>
 
 <script>
+import { initFlowbite } from 'flowbite'
 import BottomNavigation from '../components/BottomNavigation.vue'
 import SideMenu from '../components/SideMenu.vue'
 import TopNavbar from '../components/TopNavbar.vue'
@@ -99,12 +102,23 @@ export default {
       this.products = response;
       this.eventCart.initialDate = dateRange.initialDate;
       this.eventCart.endDate = dateRange.endDate;
+      this.eventCart.user = localStorage.getItem('userDui');
       localStorage.setItem('eventCart', JSON.stringify(this.eventCart));
       console.log(response);
     },
     toEventCreate() {
-      this.$router.push("/event-create");
+      const products = JSON.parse(localStorage.getItem('eventCart')).products;
+      if (Object.keys(products).length === 0) {
+        this.$router.push("/event-create");
+      } else {
+        this.$router.push("/event-create");
+      }
+
     },
+    mounted() {
+      initFlowbite();
+      getAvailables();
+    }
   }
 }
 </script>

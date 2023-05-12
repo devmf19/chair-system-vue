@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="max-w-md  md:max-w-2xl mx-auto">
     <span class="text-sm text-graytext font-medium">Seleccione el intervalo de fechas</span>
     <div class="flex justify-between">
       <div class="pr-1">
@@ -50,7 +50,10 @@ export default {
       this.$emit('getDateRange', {
         initialDate: this.format(this.initialDate),
         endDate: this.format(this.endDate),
-      })
+      });
+      console.log(this.format(this.initialDate))
+      console.log( this.format(this.endDate))
+     
     }
   },
   mounted() {

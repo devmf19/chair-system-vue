@@ -60,7 +60,7 @@ export default {
             try {
                 const response = await auth.login(this.username, this.password);
                 console.log(response.data);
-                auth.setToken(response.data.token);
+                auth.setToken(response.data);
                 this.$router.push("/home");
             } catch (error) {
                 this.error = true;

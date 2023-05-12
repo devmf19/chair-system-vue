@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-md mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+    <div class="mx-auto rounded-xl shadow-md overflow-hidden max-w-md  md:max-w-2xl">
         <div class="px-8 py-4 flex items-center justify-between text-base font-bold bg-ultradarkblue">
             <span class="block mt-1 text-lg leading-tight font-medium text-lightblue">{{ product.productName }}</span>
             <span
