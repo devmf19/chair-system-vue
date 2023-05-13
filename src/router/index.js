@@ -9,6 +9,7 @@ import ProfileView from '../views/ProfileView.vue'
 import ProductsView from '../views/ProductsView.vue'
 import EventCreateView from '../views/EventCreateView.vue'
 import EventDetailsView from '../views/EventDetailsView.vue'
+import CustomersView from '../views/CustomersView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -69,6 +70,12 @@ const router = createRouter({
       path: '/event-details',
       name: 'event-details',
       component: EventDetailsView,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/customers',
+      name: 'customers',
+      component: CustomersView,
       meta: { requiresAuth: true }
     }
   ]

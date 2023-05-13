@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { initFlowbite } from 'flowbite'
 import BottomNavigation from '../components/BottomNavigation.vue'
 import SideMenu from '../components/SideMenu.vue'
 import TopNavbar from '../components/TopNavbar.vue'
@@ -54,6 +55,7 @@ export default {
   },
   mounted() {
     this.getEvents();
+      initFlowbite();
   }
 }
 </script>

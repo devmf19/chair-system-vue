@@ -11,7 +11,6 @@
 import Edit from './icons/Edit.vue';
 import See from './icons/See.vue';
 import Delete from './icons/Delete.vue';
-import productsService from '../services/products.service'
 
 export default {
   name: 'Product',
@@ -45,6 +44,9 @@ export default {
   },
   mounted() {
     this.getProduct();
+  },
+  mounted() {
+    initFlowbite();
   }
 }
 </script>

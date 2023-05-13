@@ -80,7 +80,10 @@
             </div>
 
 
-
+            <select data-te-select-init data-te-select-filter="true"
+                v-for="(customer, index) in customers" :key="index">
+                <option value="1" v-on:click="setCustomerDui(customer)">{{ customer.name }} {{ customer.lastname }}</option>
+            </select>
 
 
             <div id="dpdwnCustomers"
@@ -103,7 +106,8 @@
 </template>
 
 <script>
-import { initFlowbite } from 'flowbite'
+//import { initFlowbite } from 'flowbite'
+import { Select, initTE } from "tw-elements";
 import TittleBar from '../components/TittleBar.vue';
 import Product from '../components/Product.vue';
 import customersService from '../services/customers.service';
@@ -176,8 +180,8 @@ export default {
         }
     },
     mounted() {
+        initTE({ Select });
         this.productsList();
-        initFlowbite();
     }
 }
 </script>

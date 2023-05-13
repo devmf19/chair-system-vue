@@ -14,9 +14,9 @@
 
       <div class="px-4 py-6">
         <div v-for="product in products" :key="product.id">
-          <div class="max-w-md mb-3 mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+          <div class="max-w-md mb-3 mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl border-2 border-darkGreen">
             <Product :product="{ id: product.id, name: product.name, amount: product.amount }" />
-            <div class="px-8 py-2 flex flex-row justify-around">
+            <div class="px-8 py-2 flex flex-row justify-around bg-lightGreen">
               <button type="button" data-te-toggle="modal" data-te-target="#productUpdateModal" data-te-ripple-init
                 data-te-ripple-color="dark" v-on:click="setUpdateProduct(product.id, product.name, product.amount)">
                 <Edit />

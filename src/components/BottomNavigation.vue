@@ -43,7 +43,7 @@
             </div>
             <RouterLink to="/profile" data-tooltip-target="tooltip-profile" type="button"
                 class="inline-flex flex-col items-center justify-center px-5 rounded-r-full hover:bg-gray-50 dark:hover:bg-gray-800 group">
-                <UserIcon />
+                <UserIcon  class="w-6 h-6"/>
                 <span class="sr-only">Perfil</span>
             </RouterLink>
             <div id="tooltip-profile" role="tooltip"
